@@ -1,0 +1,117 @@
+﻿@model List<Product>
+
+
+<partial name="_SearchProductPartial" />
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Title</th>
+			<th scope="col">Price</th>
+			<th scope="col">Tax</th>
+			<th scope="col">Ads</th>
+			<th scope="col">Discount</th>
+			<th scope="col">Quantity</th>
+			<th scope="col">Category</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		@if (Model.Count == 0)
+		{
+			<div class="text-danger"> Not found any products yet </div>
+		}
+		else
+		{
+
+			foreach (var item in Model)
+			{
+				<tr>
+					<th scope="row"></th>
+					<td>@item.Title</td>
+					<td>@item.Price</td>
+					<td>@item.Tax</td>
+					<td>@item.Ads</td>
+					<td>@item.Discount</td>
+					<td>@item.Quantity</td>
+					<td>@item.Category?.Name</td>
+				</tr>
+			}
+
+
+		}
+
+
+	</tbody>
+</table>
+
+
+
+
+@* <!-- === Search === -->
+<div class="search">
+    <button onclick="directing()">
+        <i class="fa-solid fa-pen-to-square"></i> Creation page
+    </button>
+    <input onkeyup="searchData(this.value)"
+           type="text"
+           placeholder="Search"
+           id="search" />
+    <div class="btnSearch">
+        <button onclick="getSearchMode(this.id)" id="searchTitle">
+            <i class="fa-solid fa-search"></i> Search By Title
+        </button>
+        <button onclick="getSearchMode(this.id)" id="searchCategory">
+            <i class="fa-solid fa-search"></i> Search By Category
+        </button>
+    </div>
+    <div id="deleteAll"></div>
+</div> *@
+
+
+
+<!-- === Outputs === -->
+@* <div class="outputs">
+	<table>
+		<!-- = Outputs-Head = -->
+		<tr>
+			<th>id</th>
+			<th>title</th>
+			<th>price</th>
+			<th>taxes</th>
+			<th>ads</th>
+			<th>discount</th>
+			<th>total</th>
+			<th>category</th>
+			@* <th>update</th>
+			<th>delete</th> 
+		</tr>
+
+		<!-- = Outputs-Items = -->
+		<tbody id="tbody"></tbody>
+	</table>
+</div> *@
+@* </div>
+      </section> *@
+
+
+<!-- ===== End ===== Outputs-Section -->
+
+<div class="scroll-up">
+	<span>
+		<i class="fa-solid fa-shuttle-space fa-fade"></i>
+	</span>
+</div>
+
+
+@section Scripts {
+	<!-- ===== JS-File ===== Font-Awesome -->
+	<script src="~/js/all.min.js"></script>
+
+	<!-- ===== JS-File ===== Main -->
+	<script src="~/js/main.js"></script>
+
+	<!-- ===== JS-File ===== Style Switcher-->
+	<script src="~/js/styleSwitcher.js"></script>
+}

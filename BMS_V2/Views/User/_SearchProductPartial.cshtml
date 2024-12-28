@@ -1,0 +1,19 @@
+﻿
+<!-- === Search === -->
+<div class="search col-md-12" style="margin-left:50%;">
+	@* <button onclick="directing()">
+        <i class="fa-solid fa-pen-to-square"></i> Creation page
+    </button> *@
+	<form asp-controller="User" asp-action="Index" method="get"style="width:50%;">
+		<input name="Title"  placeholder="Search"  class="form-control"/>
+		<div class="btnSearch">
+			<button type="submit" >
+				<i class="fa-solid fa-search"></i> Search
+			</button>
+			@* <button onclick="getSearchMode(this.id)" id="searchCategory">
+				<i class="fa-solid fa-search"></i> Search By Category
+			</button> *@
+		</div>
+		@* <div id="deleteAll"></div> *@
+	</form>
+</div>
